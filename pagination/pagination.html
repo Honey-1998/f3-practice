@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Info Display</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>User Information</h1>
+      <button id="fetchUsers">Fetch Users</button>
+      <input type="text" id="userSearch" placeholder="Search by name..." />
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div id="paginationControls"></div>
+
+      <div id="errorDisplay" class="error"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
