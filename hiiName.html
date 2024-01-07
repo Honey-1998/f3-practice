@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <label for="name">Enter Your Name</label>
+        <input type="text"id="name"/>
+        <button type="submit">submit</button>
+        </form>
+        <div id="message"></div>
+
+        <script>
+        function setCookies() {
+          const name=document.getElementById("name").value;
+              console.log(name);
+              document.cookie="name = "+encodeURIComponent(name) +"" ;
+              document.getElementById("message").textContent="Hiithere,"+name;
+               }document.querySelector("form").addEventListener("submit",function(event) {
+               event.preventDefault();
+               setCookies();
+      });
+      </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <style>
+      /* some basic styling for the app */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #app {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      textarea {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+      }
+      button {
+        display: block;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0069d9;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-top: 2rem;
+      }
+      li {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .task-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .task-desc {
+        font-size: 18px;
+      }
+      .task-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>To-Do List</h1>
+      <form id="add-task-form">
+        <label for="task-title">Task Title:</label>
+        <input type="text" id="task-title" name="task-title" required />
+        <label for="task-desc">Task Description:</label>
+        <textarea id="task-desc" name="task-desc" rows="4" required></textarea>
+        <button type="submit">Add Task</button>
+      </form>
+      <ul id="task-list"></ul>
+    </div>
+    <script>const addTaskForm = document.getElementById("add-task-form");
+      const taskList = document.getElementById("task-list");
+      let tasks = [];
+      function addTask(title, desc) {
+        const task = { title, desc };
+        tasks.push(task);updateTaskList();
+      }function removeTask(index) {
+        tasks.splice(index, 1);
+        updateTaskList();
+      }
+      function updateTaskList() {taskList.innerHTML = "";
+      tasks.forEach((task, index) => {const taskElement = document.createElement("li");
+      taskElement.innerHTML = `
+        <div class="task-title">${task.title}</div>
+        <div class="task-desc">${task.desc}</div>
+        <div class="task-actions"><button onclick="removeTask(${index})">Remove</button>
+        </div>`;taskList.appendChild(taskElement);
+        });
+        }
+        addTaskForm.addEventListener("submit", (event) => {event.preventDefault();
+        const title = event.target.elements["task-title"].value;
+        const desc = event.target.elements["task-desc"].value;
+        addTask(title, desc);event.target.reset();
+        });
+        </script>
+
+  </body>
+</html>

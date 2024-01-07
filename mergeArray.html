@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1= [1,3,5,7,9];
+        let arr2= [2,4,6,8,10];
+        i=0;
+        j=0;
+        function mergeSortedArray(arr1,arr2,compare) {
+          result=[];
+          if(compare(arr1[i],arr2[j]) <=0) {
+            result.push(arr1[i]);i++;
+            }
+            else{
+              result.push(arr2[j]);
+              j++;
+              }while(i<arr1.length) {
+                result.push(arr1[i]);
+              i++;
+              }
+              while(j<arr2.length) {
+                result.push(arr2[j]);
+                j++;
+                }return result;
+                }let merged=mergeSortedArray(arr1,arr2, (a,b)=>a-b);
+                console.log(merged);
+                </script>
+        
+</body>
+</html>
